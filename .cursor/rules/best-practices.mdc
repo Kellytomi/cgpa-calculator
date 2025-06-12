@@ -1,0 +1,101 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: 
+globs: 
+alwaysApply: true
+---
+description: Best Practices
+
+🧠 GENERAL PRINCIPLES
+1. Write the code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live. Prioritise readability over cleverness — use descriptive variable and function names.
+
+2. Comment why, not what — assume the code explains itself, document intent or non-obvious decisions.
+
+3. Follow DRY (Don't Repeat Yourself), KISS (Keep It Simple, Stupid), and YAGNI (You Ain’t Gonna Need It) principles.
+
+4. Error-first thinking — proactively handle edge cases, unexpected inputs, and failures.
+
+📦 STRUCTURE & ORGANISATION
+5. Use consistent project structures based on language/framework conventions (e.g., src/, tests/, utils/, services/).
+
+6. Modularise code — functions and classes should do one thing and do it well.
+
+7. Use environment-based configuration (e.g., .env, config files) — no hardcoded secrets or constants.
+
+8. Separate concerns — don’t mix business logic with UI, DB access, or validation.
+
+🧪 TESTING
+9. Write unit tests for all core logic — aim for 80%+ coverage on critical paths.
+
+10. Use mocks/stubs for external APIs and I/O in tests.
+
+11. Include test setup and teardown to isolate test behaviour.
+
+12. Use snapshot testing for UI where appropriate (e.g., Jest + React).
+
+🔄 VERSION CONTROL
+13. Follow conventional commit messages (feat:, fix:, chore:).
+
+14. Create focused pull requests with concise descriptions of what/why.
+
+15. Always link PRs to tasks/tickets/issues where applicable.
+
+🔐 SECURITY
+16. Validate all user inputs — never trust client-side data.
+
+17. Sanitise inputs and escape outputs (especially in SQL, HTML, JSON).
+
+18. Use HTTPS, secure headers, and up-to-date packages.
+
+19. Avoid storing passwords manually — use hashing with salts or external auth providers.
+
+🚀 PERFORMANCE & SCALABILITY
+20. Optimise for performance after correctness — profile before micro-optimising.
+
+21. Lazy load heavy components or assets when possible.
+
+22. Paginate large datasets and stream responses if needed.
+
+23. Implement caching (memory or CDN) for expensive operations or repeat requests.
+
+🛠️ TOOLING & DEPENDENCIES
+24. Use linters and formatters (e.g., ESLint, Prettier, Black) and enforce them via CI.
+
+25. Avoid unnecessary dependencies — prefer native APIs or stable libraries. Pin package versions for reproducible builds unless using lockfiles.
+
+🤖 AI-SPECIFIC INSTRUCTIONS
+26. Default to language idioms and current community standards (e.g., use async/await in JavaScript).
+
+27. When generating code, always include:
+
+28. Clear function/class purpose
+
+29. Input/output types or expectations
+
+30. Basic usage example or test
+
+31. Highlight any limitations or assumptions in the code for developers to review.
+
+🌍 FRONTEND-SPECIFIC
+32. Use component-driven development (especially with frameworks like React, Vue, Flutter).
+
+33. Leverage state management wisely — avoid overengineering with Redux unless necessary.
+
+34. Use semantic HTML and accessibility best practices (ARIA, alt texts).
+
+35. Ensure responsive and mobile-first design.
+
+🔙 BACKEND-SPECIFIC
+36. Follow RESTful conventions (or GraphQL where needed).
+
+37. Design APIs with versioning and rate-limiting in mind.
+
+38. Log meaningful events — not just errors but also key actions.
+
+39. Ensure graceful failure and retries for integrations.
+
+
