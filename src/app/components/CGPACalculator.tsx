@@ -48,8 +48,8 @@ export function CGPACalculator() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <Header onShowGradeInfo={() => setShowGradeInfo(true)} />
       
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
-        <div className="grid gap-8 lg:grid-cols-3">
+      <div className="container mx-auto px-3 sm:px-4 py-6 max-w-6xl">
+        <div className="grid gap-6 lg:gap-8 lg:grid-cols-3">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             <SemesterManager
@@ -83,6 +83,12 @@ export function CGPACalculator() {
             />
           </div>
         </div>
+
+        {/* Footer */}
+        <footer className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-600 dark:text-gray-400">
+          <p>Made with ❤️ for Nigerian university students</p>
+          <p className="mt-1">© {new Date().getFullYear()} CGPA Calculator</p>
+        </footer>
       </div>
 
       {/* Grade System Info Modal */}

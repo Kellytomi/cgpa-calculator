@@ -28,8 +28,8 @@ export function CourseInput({ course, onUpdate, onDelete }: CourseInputProps) {
   };
 
   return (
-    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 space-y-4 bg-gray-50 dark:bg-gray-800/50">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-3 sm:p-4 space-y-3 sm:space-y-4 bg-gray-50 dark:bg-gray-800/50">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Course Name
@@ -57,7 +57,7 @@ export function CourseInput({ course, onUpdate, onDelete }: CourseInputProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Credit Units
@@ -90,49 +90,47 @@ export function CourseInput({ course, onUpdate, onDelete }: CourseInputProps) {
           </select>
         </div>
 
-        <div>
+        <div className="col-span-2 md:col-span-1">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Grade Points
           </label>
           <div className="px-3 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 font-medium">
             {course.gradePoints.toFixed(1)}
+            <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
+              Quality Points: {(course.gradePoints * course.creditUnits).toFixed(1)}
+            </span>
           </div>
         </div>
       </div>
 
-      <div className="flex justify-between items-center pt-2">
-        <div className="text-sm text-gray-600 dark:text-gray-400">
-          Quality Points: <span className="font-medium">{(course.gradePoints * course.creditUnits).toFixed(1)}</span>
-        </div>
-        
-        <div className="flex space-x-2">
-          {showConfirmDelete ? (
-            <div className="flex space-x-2">
-              <button
-                onClick={() => setShowConfirmDelete(false)}
-                className="px-3 py-1 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={onDelete}
-                className="px-3 py-1 text-sm bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
-              >
-                Confirm Delete
-              </button>
-            </div>
-          ) : (
+      <div className="flex justify-end items-center pt-1">
+        {showConfirmDelete ? (
+          <div className="flex space-x-2">
             <button
-              onClick={() => setShowConfirmDelete(true)}
-              className="p-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
-              title="Delete course"
+              onClick={() => setShowConfirmDelete(false)}
+              className="px-3 py-1 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-              </svg>
+              Cancel
             </button>
-          )}
-        </div>
+            <button
+              onClick={onDelete}
+              className="px-3 py-1 text-sm bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
+            >
+              Confirm Delete
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={() => setShowConfirmDelete(true)}
+            className="p-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+            title="Delete course"
+            aria-label="Delete course"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </button>
+        )}
       </div>
     </div>
   );
