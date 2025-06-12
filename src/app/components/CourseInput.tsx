@@ -4,7 +4,7 @@ import { useState } from 'react';
 import type { Course } from './CGPACalculator';
 
 const GRADES = ['A', 'B', 'C', 'D', 'E', 'F'] as const;
-const CREDIT_OPTIONS = [1, 2, 3, 4, 5, 6];
+const CREDIT_OPTIONS = [1, 2, 3];
 
 interface CourseInputProps {
   course: Course;
@@ -29,20 +29,7 @@ export function CourseInput({ course, onUpdate, onDelete }: CourseInputProps) {
 
   return (
     <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-3 sm:p-4 space-y-3 sm:space-y-4 bg-gray-50 dark:bg-gray-800/50">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            Course Name
-          </label>
-          <input
-            type="text"
-            value={course.name}
-            onChange={(e) => onUpdate({ name: e.target.value })}
-            placeholder="e.g., Introduction to Computer Science"
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-          />
-        </div>
-
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Course Code
@@ -55,9 +42,7 @@ export function CourseInput({ course, onUpdate, onDelete }: CourseInputProps) {
             className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
           />
         </div>
-      </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Credit Units
@@ -90,20 +75,17 @@ export function CourseInput({ course, onUpdate, onDelete }: CourseInputProps) {
           </select>
         </div>
 
-        <div className="col-span-2 md:col-span-1">
+        <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            Grade Points
+            Quality Points
           </label>
           <div className="px-3 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 font-medium">
-            {course.gradePoints.toFixed(1)}
-            <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
-              Quality Points: {(course.gradePoints * course.creditUnits).toFixed(1)}
-            </span>
+            {(course.gradePoints * course.creditUnits).toFixed(1)}
           </div>
         </div>
       </div>
 
-      <div className="flex justify-end items-center pt-1">
+      <div className="flex justify-end items-center">
         {showConfirmDelete ? (
           <div className="flex space-x-2">
             <button

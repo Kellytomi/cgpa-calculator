@@ -82,7 +82,6 @@ export function ExportTools({
                 <thead>
                   <tr>
                     <th>Course Code</th>
-                    <th>Course Name</th>
                     <th>Credit Units</th>
                     <th>Grade</th>
                     <th>Grade Points</th>
@@ -93,7 +92,6 @@ export function ExportTools({
                   ${semester.courses.map(course => `
                     <tr>
                       <td>${course.code}</td>
-                      <td>${course.name}</td>
                       <td>${course.creditUnits}</td>
                       <td>${course.grade}</td>
                       <td>${course.gradePoints.toFixed(1)}</td>

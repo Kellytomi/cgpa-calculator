@@ -95,7 +95,7 @@ export function useCGPAData() {
   const addCourse = useCallback((semesterId: string) => {
     const newCourse: Course = {
       id: generateId(),
-      name: '',
+      name: '', // Optional - not used in UI anymore
       code: '',
       creditUnits: 3,
       grade: 'A',
